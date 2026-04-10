@@ -2,9 +2,8 @@ const campoInput = document.getElementById('pesquisa');
 const botaoAdd = document.getElementById('botaoAdd');
 const container = document.getElementById('container-texto');
 const botaoLimpar = document.getElementById('btnLimpar');
+const botaoEditar = document.getElementById('btnEditar');      
 const mensagemVazia = document.getElementById('mensagem-vazia');
-const mensagem = document.getElementById('mensagem');
-let mensagemTimeout;
 
 function atualizarEstadoDaLista() {
     if (container.children.length === 0) {
@@ -14,16 +13,6 @@ function atualizarEstadoDaLista() {
         mensagemVazia.style.display = 'none';
         botaoLimpar.style.display = 'block';
     }
-}
-
-function mostrarMensagem(texto) {
-    clearTimeout(mensagemTimeout);
-    mensagem.textContent = texto;
-    mensagem.classList.add('mostrar');
-
-    mensagemTimeout = setTimeout(function() {
-        mensagem.classList.remove('mostrar');
-    }, 2200);
 }
 
 function adicionarItem() {
@@ -57,7 +46,6 @@ function adicionarItem() {
         btnExcluir.addEventListener('click', function() {
             itemDiv.remove(); 
             atualizarEstadoDaLista();
-            mostrarMensagem("ítem excluído");
         });
 
         const btnFixar = document.createElement('button');
@@ -92,10 +80,20 @@ function adicionarItem() {
             window.open(url, '_blank');
         });
 
+        const bntEditar = document.createElement('button');
+        bntEditar.textContent = "Editar";
+        bntEditar.classList.add('btn-acao', 'btn-editar'); 
+        bntEditar.addEventListener('click', function() {
+            const novoValor = prompt("Edite o item:", textoSpan.textContent);
+            if (novoValor !== null) {
+                const valorEditado = novoValor.trim();
+                textoSpan.textContent = valorEditado;
+            }
+        });
+
         acoesDiv.appendChild(btnExcluir);
         acoesDiv.appendChild(btnFixar);
         acoesDiv.appendChild(btnWeb);
-
         itemDiv.appendChild(textoSpan);
         itemDiv.appendChild(acoesDiv);
 
@@ -105,7 +103,6 @@ function adicionarItem() {
         campoInput.focus();
 
         atualizarEstadoDaLista();
-        mostrarMensagem("ítem adicionado");
     }
 }
 
@@ -119,5 +116,3 @@ botaoLimpar.addEventListener('click', function() {
 botaoAdd.addEventListener('click', adicionarItem);
 
 atualizarEstadoDaLista();
-
-
