@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista Inteligente</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="app-container">
+        <h2>Minha Lista</h2>
+        
+        <div class="input-group">
+            <input type="text" id="pesquisa" placeholder="Digite um item...">
+            <button id="botaoAdd">Adicionar</button>
+            <button id="btnLimpar" style="display: none;">Limpar Tudo</button>
+        </div>
+
+        <p id="mensagem-vazia" class="texto-vazio">Sua lista está vazia.</p>
+        <p id="mensagem"></p>
+        <div id="container-texto" class="lista-container"></div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
