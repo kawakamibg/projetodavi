@@ -92,7 +92,7 @@ body {
 .item-acoes {
     display: flex;
     gap: 5px;
-    opacity: 0;
+    opacity: 1;
     transition: opacity 0.3s;
 }
 

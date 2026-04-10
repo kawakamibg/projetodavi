@@ -80,10 +80,10 @@ function adicionarItem() {
             window.open(url, '_blank');
         });
 
-        const bntEditar = document.createElement('button');
-        bntEditar.textContent = "Editar";
-        bntEditar.classList.add('btn-acao', 'btn-editar'); 
-        bntEditar.addEventListener('click', function() {
+        const btnEditar = document.createElement('button');
+        btnEditar.textContent = "Editar";
+        btnEditar.classList.add('btn-acao', 'btn-editar'); 
+        btnEditar.addEventListener('click', function() {
             const novoValor = prompt("Edite o item:", textoSpan.textContent);
             if (novoValor !== null) {
                 const valorEditado = novoValor.trim();
@@ -94,6 +94,7 @@ function adicionarItem() {
         acoesDiv.appendChild(btnExcluir);
         acoesDiv.appendChild(btnFixar);
         acoesDiv.appendChild(btnWeb);
+        acoesDiv.appendChild(btnEditar);
         itemDiv.appendChild(textoSpan);
         itemDiv.appendChild(acoesDiv);
 
